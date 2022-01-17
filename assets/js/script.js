@@ -3,6 +3,19 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
+        // signal the parent that we're loaded.
+        window.parent.postMessage("loaded", "*");
+
+        // listen for messages from the parent.
+        window.addEventListener("message", function(e) {
+    
+            var message = document.createElement("h1");
+    
+            message.innerHTML = e.data;
+    
+            document.body.appendChild(message);
+    
+        }, false);
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
@@ -142,20 +155,3 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 
-window.addEventListener("DOMContentLoaded", function() {
-
-    // signal the parent that we're loaded.
-    window.parent.postMessage("loaded", "*")
-
-    // listen for messages from the parent.
-    window.addEventListener("message", function(e) {
-
-        var message = document.createElement("h1")
-
-        message.innerHTML = e.data
-
-        document.body.appendChild(message)
-
-    }, false)
-
-}, false)
