@@ -142,16 +142,20 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 
-window.addEventListener('message', event => {
-    // IMPORTANT: check the origin of the data! 
-    if (event.origin.startsWith('https://learn.codeinstitute.net')) { 
-        // The data was sent from your site.
-        // Data sent with postMessage is stored in event.data:
-        document.getElementById("score").innerText = event.data; 
-    } else {
-        // The data was NOT sent from your site! 
-        // Be careful! Do not use it. This else branch is
-        // here just for clarity, you usually shouldn't need it.
-        return; 
-    } 
-}); 
+window.addEventListener("DOMContentLoaded", function() {
+
+    // signal the parent that we're loaded.
+    window.parent.postMessage("loaded", "*")
+
+    // listen for messages from the parent.
+    window.addEventListener("message", function(e) {
+
+        var message = document.createElement("h1")
+
+        message.innerHTML = e.data
+
+        document.body.appendChild(message)
+
+    }, false)
+
+}, false)
