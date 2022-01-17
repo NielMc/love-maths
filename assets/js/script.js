@@ -141,8 +141,7 @@ function displayMultiplyQuestion(operand1, operand2) {
 
 }
 
-let a = 10;
-window.parent.postMessage(['varA', a], '*');
+
 window.addEventListener('message', event => {
     // IMPORTANT: check the origin of the data! 
     if (event.origin.startsWith('https://learn.codeinstitute.net')) { 
