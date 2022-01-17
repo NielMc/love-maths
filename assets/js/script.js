@@ -113,6 +113,7 @@ function incrementWrongAnswer() {
 
     let oldScore = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldScore;
+    return oldScore;
     
 }
 
@@ -139,3 +140,5 @@ function displayMultiplyQuestion(operand1, operand2) {
     document.getElementById('operator').textContent = "x";
 
 }
+
+parent.iFrameWin = window;
