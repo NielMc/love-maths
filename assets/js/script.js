@@ -142,3 +142,4 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 parent.iFrameWin = window;
+let a = 10
