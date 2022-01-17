@@ -141,5 +141,5 @@ function displayMultiplyQuestion(operand1, operand2) {
 
 }
 
-parent.iFrameWin = window;
-let a = 10
+let a = 10;
+window.parent.postMessage(['varA', a], '*');
