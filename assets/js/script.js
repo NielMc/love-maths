@@ -143,3 +143,16 @@ function displayMultiplyQuestion(operand1, operand2) {
 
 let a = 10;
 window.parent.postMessage(['varA', a], '*');
+window.addEventListener('message', event => {
+    // IMPORTANT: check the origin of the data! 
+    if (event.origin.startsWith('https://learn.codeinstitute.net')) { 
+        // The data was sent from your site.
+        // Data sent with postMessage is stored in event.data:
+        console.log(event.data); 
+    } else {
+        // The data was NOT sent from your site! 
+        // Be careful! Do not use it. This else branch is
+        // here just for clarity, you usually shouldn't need it.
+        return; 
+    } 
+}); 
