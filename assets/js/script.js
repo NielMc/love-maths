@@ -1,6 +1,6 @@
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
-
+console.log(window.parent);
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
         // signal the parent that we're loaded.
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
             message.innerHTML = e.data;
     
             document.body.appendChild(message);
+            e.source.postMessage('received', '*')
     
         }, false);
 
