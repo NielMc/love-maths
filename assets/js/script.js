@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.parent.postMessage("loaded", "*");
 
         // listen for messages from the parent.
+        console.log("love maths"
         window.addEventListener("message", function(e) {
     
             var message = document.createElement("h1");
