@@ -4,7 +4,7 @@ console.log(window.parent);
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
         // signal the parent that we're loaded.
-        window.parent.postMessage("loaded", "*");
+        window.parent.postMessage(userAnswer, "*");
 
         // listen for messages from the parent.
         console.log("love maths");
